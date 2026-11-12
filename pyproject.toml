@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tire-pdm"
+version = "0.1.0"
+description = "Predictive maintenance of car wheels and tyres from simulated vibration: quarter-car model, signal-processing features, fault classification, indirect pressure estimation and slow-leak prognostics."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Ayoub Elkhader" }]
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "pandas", "scikit-learn", "matplotlib"]
+
+[project.optional-dependencies]
+cnn = ["torch"]
+test = ["pytest"]
+
+[tool.setuptools]
+packages = ["tire_pdm"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

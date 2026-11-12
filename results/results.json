@@ -1,0 +1,182 @@
+{
+  "baseline_2024": {
+    "natural_frequencies_hz": {
+      "normal": 7.957747154594767,
+      "flat": 6.164044440614998,
+      "punctured": 7.117625434171771
+    },
+    "original_linear_svc_random_split": {
+      "accuracy": 0.6383333333333333,
+      "always_predict_fault": 0.6383333333333333,
+      "test_points": 600
+    },
+    "generalisation_check": {
+      "points_random_split": 0.7372222222222222,
+      "points_vehicle_split": 0.746,
+      "curves_vehicle_split_majority_vote": 0.7666666666666667,
+      "n_curves": 180
+    }
+  },
+  "dataset": {
+    "runs": 2400,
+    "vehicles": 160,
+    "features": 30,
+    "spectrogram_shape": [
+      64,
+      62
+    ]
+  },
+  "indicators": {
+    "susp_zeta_corr_with_true": 0.9983027811386629,
+    "susp_zeta_median_abs_rel_error": 0.014689038099066187,
+    "hop_freq_corr_with_true": 0.9784032677954142
+  },
+  "classification": {
+    "svc_rbf": {
+      "accuracy": 0.79375,
+      "macro_f1": 0.793853987510161,
+      "recall_per_class": {
+        "healthy": 0.63125,
+        "underinflated": 0.8479166666666667,
+        "imbalance": 0.5875,
+        "bulge": 0.9979166666666667,
+        "worn_damper": 0.9041666666666667
+      }
+    },
+    "random_forest": {
+      "accuracy": 0.8025,
+      "macro_f1": 0.8019960725910344,
+      "recall_per_class": {
+        "healthy": 0.6458333333333334,
+        "underinflated": 0.85625,
+        "imbalance": 0.5916666666666667,
+        "bulge": 1.0,
+        "worn_damper": 0.91875
+      }
+    },
+    "gradient_boosting": {
+      "accuracy": 0.7970833333333334,
+      "macro_f1": 0.7967770101102136,
+      "recall_per_class": {
+        "healthy": 0.59375,
+        "underinflated": 0.8604166666666667,
+        "imbalance": 0.6229166666666667,
+        "bulge": 0.9979166666666667,
+        "worn_damper": 0.9104166666666667
+      }
+    },
+    "random_forest_random_split": {
+      "accuracy": 0.80875,
+      "macro_f1": 0.8091453313259123,
+      "recall_per_class": {
+        "healthy": 0.6625,
+        "underinflated": 0.8604166666666667,
+        "imbalance": 0.6,
+        "bulge": 1.0,
+        "worn_damper": 0.9208333333333333
+      }
+    },
+    "svc_rbf_spectral_bands_only": {
+      "accuracy": 0.7054166666666667,
+      "macro_f1": 0.7032327512735023,
+      "recall_per_class": {
+        "healthy": 0.5604166666666667,
+        "underinflated": 0.8270833333333333,
+        "imbalance": 0.43333333333333335,
+        "bulge": 0.79375,
+        "worn_damper": 0.9125
+      }
+    },
+    "cnn_spectrogram": {
+      "accuracy": 0.68125,
+      "macro_f1": 0.6738291426403699,
+      "recall_per_class": {
+        "healthy": 0.4395833333333333,
+        "underinflated": 0.8395833333333333,
+        "imbalance": 0.3375,
+        "bulge": 0.925,
+        "worn_damper": 0.8645833333333334
+      }
+    }
+  },
+  "permutation_importance_top10": {
+    "orders2_10_snr_db": 0.07518147124016268,
+    "order1_amp_per_w2": 0.01581529250001714,
+    "body_band_10_30": 0.012841109711316467,
+    "tsa_ratio": 0.006807371034510568,
+    "order1_snr_db": 0.0038166687694206835,
+    "hub_band_8_15": 0.0018356046984319807,
+    "susp_fn": 0.0017318680221281913,
+    "body_kurtosis": 0.0009823989908459563,
+    "body_crest": 0.0008566618223702748,
+    "body_band_2_5": 0.000740400864845947
+  },
+  "anomaly_detection": {
+    "mahalanobis": {
+      "auc_vs_healthy": {
+        "underinflated": 0.8501996527777778,
+        "imbalance": 0.6405121527777777,
+        "bulge": 0.9996744791666666,
+        "worn_damper": 0.8886588541666667
+      },
+      "detection_rate": {
+        "healthy": 0.04583333333333333,
+        "underinflated": 0.575,
+        "imbalance": 0.26458333333333334,
+        "bulge": 1.0,
+        "worn_damper": 0.6625
+      }
+    },
+    "isolation_forest": {
+      "auc_vs_healthy": {
+        "underinflated": 0.8318793402777778,
+        "imbalance": 0.6407248263888888,
+        "bulge": 0.9765190972222222,
+        "worn_damper": 0.9455555555555555
+      },
+      "detection_rate": {
+        "healthy": 0.05416666666666667,
+        "underinflated": 0.4708333333333333,
+        "imbalance": 0.18333333333333332,
+        "bulge": 0.8666666666666667,
+        "worn_damper": 0.7979166666666667
+      }
+    }
+  },
+  "pressure_estimation": {
+    "runs": 360,
+    "mae": 0.04881659860933265,
+    "bias": 0.011907801898570559,
+    "p90_abs_error": 0.10108132389992015,
+    "single_drive_detection_rate_below_0.75": 0.8932038834951457,
+    "single_drive_false_alarm_rate_above_0.90": 0.0
+  },
+  "prognostics": {
+    "scenarios": 40,
+    "alarm_raised": 38,
+    "alarm_before_true_crossing": 13,
+    "alarm_delay_days_median": 0.742694229239627,
+    "alarm_delay_days_p10_p90": [
+      -1.1972988549251085,
+      2.6211016061629806
+    ],
+    "rul_error": {
+      "at_25pct_of_life": {
+        "n": 31,
+        "median_abs_error_days": 3.5692821569702096,
+        "median_true_rul_days": 8.234141597310725
+      },
+      "at_50pct_of_life": {
+        "n": 40,
+        "median_abs_error_days": 1.6279389504687942,
+        "median_true_rul_days": 5.489427731540484
+      },
+      "at_75pct_of_life": {
+        "n": 40,
+        "median_abs_error_days": 1.0017014748860844,
+        "median_true_rul_days": 2.744713865770242
+      }
+    }
+  },
+  "runtime_s": 1016.1
+}

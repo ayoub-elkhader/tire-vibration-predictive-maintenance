@@ -1,0 +1,7 @@
+numpy
+scipy
+pandas
+scikit-learn
+matplotlib
+torch  # only for the spectrogram CNN (scripts/run_all.py without --no-cnn)
+pytest
